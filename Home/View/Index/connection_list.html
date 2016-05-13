@@ -5,13 +5,25 @@
 <meta http-equiv="X-UA-Compatible" content="IE=8" />
 <title>享WiFi后台设置</title>
 <link href="__PUBLIC__/css/style.css" rel="stylesheet" type="text/css">
+<link href="blue/doubleDate.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/doubleDate2.0.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	$('.doubledate').kuiDate({
+		className:'doubledate',
+		isDisabled: "0"  // isDisabled为可选参数，"0"表示今日之前不可选，"1"标志今日之前可选
+	});
+
+});
+</script>
 </head>
 
 <body>
 <!--头部 begin-->
 <div id="nr_top">
   <div class="wrap">
-  	<div class="top_nr"><a href="#">客户后台</a></div>
   </div>
 </div>
 <!--头部 end-->
@@ -35,6 +47,14 @@
     <td valign="top" bgcolor="#FFFFFF">
       <div class="r_nr">
       	<div class="con_title"><span>连接列表</span>
+        <div class="calendar"><ul class="iptgroup">
+	<li>开始日期：</li>
+	<li><input type="text" readonly="readonly" class="doubledate ipticon"/></li>
+	<li style="width:20px;"></li>
+	<li>结束日期：</li>
+	<li><input type="text" readonly="readonly" class="doubledate ipticon"/></li>
+</ul></div>
+
         </div>
         <div class="connec_list">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
