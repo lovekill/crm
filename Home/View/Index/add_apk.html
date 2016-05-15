@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>增加APK</title>
+  </head>
+  <body>
+    <form class="form-horizontal" enctype="multipart/form-data" style="margin:20px;" action="__ROOT__/index.php/Home/Index/doaddapp" method="post">
+      <div class="form-group">
+        <label for="" class="col-sm-2 control-label">公司名</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="company">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="" class="col-sm-2 control-label">运用名</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="" class="col-sm-2 control-label">包名</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="packagename">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="" class="col-sm-2 control-label">上传APK</label>
+        <div class="col-sm-4">
+          <input type="file" class="form-control" name="apk">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="" class="col-sm-2 control-label">price</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" name="price" placeholder="请输入单价单位为分，如 1元请输入 100">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="" class="col-sm-2 control-label">level</label>
+        <div class="col-sm-4">
+          <input type="number" class="form-control" name="level" placeholder="请输入整数">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="" class="col-sm-2 control-label">激活次数</label>
+        <div class="col-sm-4">
+          <input type="number" class="form-control" name="needopentime" placeholder="请输入整数">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-4">
+          <button type="submit" class="btn btn-info">增加</button>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

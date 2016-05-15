@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>增加APK</title>
+  </head>
+  <body>
+    <table class="table table-bordered" style="margin:20px;">
+      <tr>
+        <td>
+          运用名
+        </td>
+        <td>
+          公司名
+        </td>
+        <td>
+          包名
+        </td>
+        <td>
+          下载次数
+        </td>
+        <td>
+          打开次数
+        </td>
+        <td>
+          需要打开次数
+        </td>
+        <td>
+          单价(元)
+        </td>
+        <td>Level</td>
+        <td>
+          创建时间
+        </td>
+        <td>
+          状态
+        </td>
+      </tr>
+      <volist name="apks" id="apk">
+        <tr>
+          <td>
+            {$apk.name}
+          </td>
+          <td>
+            {$apk.company}
+          </td>
+          <td>
+            {$apk.packagename}
+          </td>
+          <td>
+            0
+          </td>
+          <td>
+            {$apk.opentimes}
+          </td>
+          <td>
+            {$apk.needopentime}
+          </td>
+          <td>
+            {$apk['price']/100}
+          </td>
+          <td>
+            {$apk.level}
+          </td>
+          <td>
+            {$apk.createtime}
+          </td>
+          <td>
+            <if condition="$apk.status = 1 ">正常
+              <else /> 下架
+              </if>
+            </td>
+        </tr>
+      </volist>
+    </table>
+  </body>
+</html>
