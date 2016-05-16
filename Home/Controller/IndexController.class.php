@@ -8,7 +8,7 @@ class IndexController extends Controller
 {
     public function index()
     {
-        $this->display("login");
+        dump($_SERVER);
     }
     public function home(){
         $ApkService = new \Home\Service\ApkService();

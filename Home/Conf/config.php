@@ -8,4 +8,5 @@ return array(
     'DB_PWD'                 => 'kdal254379', // 密码
     'DB_PORT'                => '3306', // 端口
     'DB_PREFIX'              => '', // 数据库表前缀
+    'APK_HOST'              => 'http://www.crm.sdk.com:8003', // 数据库表前缀
 );

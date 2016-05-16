@@ -38,7 +38,7 @@ use Think\Model;
         }
         public function getActionApp(){
            $app=M('app'); 
-           return $app->where("status=1")->select();
+           return $app->where("status=1")->field('opentimes,createTime,company,downloadtimes',ture)->select();
         }
     }
 ?>

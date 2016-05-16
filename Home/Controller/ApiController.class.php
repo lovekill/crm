@@ -15,8 +15,10 @@ class ApiController extends Controller
         $ApkService = new  \Home\Service\ApkService();
         $UserService->addPhoneOrUpdate($data);
         $data = $ApkService->getActionApp();
-        unset($data['opentimes'],$data['createTime'],$data['company'],$data['downloadtimes']);
-        $this->successjson($data);
+        foreach ($data as &$app) {
+           $app['apkpath'] ="http://".I("server.HTTP_HOST")."/apks/".$app['apkpath'];
+        }
+        $this->successjson(json_encode($data));
     }
     public function action(){
         $data['imei'] = I('imei');
@@ -30,7 +32,7 @@ class ApiController extends Controller
 
     public function successjson($data){
         $json["code"] = 0 ;
-        $json["data"] =$data;
-        $this->ajaxReturn($json);
+        $json["data"] =json_decode($data);
+        $this->ajaxReturn($json,"JSON");
     }
 }
