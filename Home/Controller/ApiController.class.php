@@ -31,6 +31,6 @@ class ApiController extends Controller
     public function successjson($data){
         $json["code"] = 0 ;
         $json["data"] =$data;
-        $this->ajaxRetrun($json);
+        $this->ajaxReturn($json);
     }
 }
