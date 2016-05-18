@@ -8,11 +8,14 @@ class IndexController extends Controller
 {
     public function index()
     {
-        dump($_SERVER);
+        echo "index";
     }
     public function home(){
         $ApkService = new \Home\Service\ApkService();
         $apks = $ApkService->getPage(0);
+        foreach ($apks as &$apk) {
+           $apk['apkpath']="http://".I("server.HTTP_HOST")."/apks/".$apk["apkpath"]; 
+        }
         $this->assign("apks",$apks); 
         $this->display("apk_list") ;
     }
@@ -31,6 +34,7 @@ class IndexController extends Controller
         );
         $data['packagename']=I("packagename");
         $upload = new \Think\Upload($config);// 实例化上传类
+        dump($_POST);
         $info   =   $upload->uploadOne($_FILES['apk']);
         if(!$info) {// 上传错误提示错误信息
             $this->error($upload->getError());
@@ -44,8 +48,18 @@ class IndexController extends Controller
         $data['price'] =I("price");
         $data["createTime"] = date('Y-m-d H:i:s',time());
         $ApkService = new \Home\Service\ApkService();
-        $ApkService->addApk($data);
+        if(I("id")==null){
+            $ApkService->addApk($data);
+        }else{
+            $data['id']=I('id') ;
+            $ApkService->updateApp($data);
+        }
         $this->home();
+    }
+    public function modify($id){
+        $ApkService = new \Home\Service\ApkService();
+        $this->assign("apk",$ApkService->getApkById($id));
+        $this->display("modify");
     }
 }
 

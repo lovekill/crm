@@ -25,8 +25,14 @@ class ApiController extends Controller
         $data['packagename'] = I('packagename');
         $data['type'] = I('type');
         $data['chanelid'] = I('chanelid');
-        $ActionService = \Home\Service\UserActionService();
+        $ActionService = new  \Home\Service\UserActionService();
         $ActionService->addAction($data);
+        $ApkService  = new \Home\Service\ApkService() ;
+        if($data['type']==1){//下载
+            $ApkService->downloadplus($data['packagename']); 
+        }elseif($data['type']==3){
+            $ApkService->openplus($data['packagename']); 
+        }
         return $this->successjson("success");
     }
 

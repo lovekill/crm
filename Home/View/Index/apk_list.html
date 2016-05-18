@@ -46,11 +46,16 @@
         <td>
           状态
         </td>
+        <td>
+          下载地址
+        </td>
       </tr>
       <volist name="apks" id="apk">
         <tr>
           <td>
-            {$apk.name}
+            <a href="__ROOT__/index.php/Home/Index/modify?id={$apk.id}">
+              {$apk.name}
+            </a>
           </td>
           <td>
             {$apk.company}
@@ -80,6 +85,9 @@
             <if condition="$apk.status = 1 ">正常
               <else /> 下架
               </if>
+            </td>
+            <td>
+              {$apk.apkpath}
             </td>
         </tr>
       </volist>

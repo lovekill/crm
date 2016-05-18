@@ -6,13 +6,19 @@ use Think\Model;
             $apk=M('app');
             return $apk->add($data);
         } 
+
+        public function getApkById($id){
+            $apk=M('app');
+            return $apk->where("id=".$id)->find();
+        }
+
         public function getAppByPackage($packagename){
             $app=M('app');
-            return $app->where("packagename=".$packagename).find();
+            return $app->where("packagename=".$packagename)->find();
         }
-        public function updateApp($app){
+        public function updateApp($data){
             $app=M('app');
-            return $app->where("id=".$app["id"]).save($app);
+            return $app->where("id=".$data["id"])->save($data);
         }
         public function getPage($page){
             $app=M('app');
