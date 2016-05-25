@@ -8,7 +8,10 @@ class IndexController extends Controller
 {
     public function index()
     {
-        echo "index";
+        $PhoneUserService = new \Home\Service\PhoneUserService();
+        $dataUser = $PhoneUserService->getUserReport();
+        $this->assign("users",$dataUser);
+        $this->display("index");
     }
     public function home(){
         $ApkService = new \Home\Service\ApkService();

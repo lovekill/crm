@@ -24,5 +24,10 @@ use Think\Model;
             $phoneuser=M('phoneuser');
             return $phoneuser->where("id=".$user["id"])->save($user);
         }
+
+        public function getUserReport(){
+            $m = M("") ;
+            return $m->query("SELECT DATE_FORMAT( createtime, '%Y-%m-%d' ) dateTime , COUNT( * ) usercount FROM phoneuser GROUP BY DATE_FORMAT( createtime, '%Y-%m-%d' )  order by createtime desc");
+        }
     }
 ?>
